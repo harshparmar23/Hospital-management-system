@@ -158,7 +158,7 @@ app.delete('/delete-department/:department_id', (req, res) => {
 
 //patient table
 app.get('/patients', (req, res) => {
-    const sql = "SELECT * FROM patient";
+    const sql = "SELECT * FROM PatientView";
     db.query(sql, (err, data) => {
         if (err) return res.json(err);
         return res.json(data);
@@ -348,7 +348,16 @@ app.put('/update-room-number/:roomNumber', (req, res) => {
 //     });
 // });
 
-
+app.get('/roomview', (req, res) => {
+    const query = `SELECT * FROM RoomView`;
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error('Error fetching room data:', err);
+            return res.status(500).send('Error fetching room data.');
+        }
+        res.json(results);
+    });
+});
 
 
 //apointment table
@@ -454,6 +463,17 @@ app.get('/appointment', (req, res) => {
     });
 });
 
+
+app.get('/appointmentview', (req, res) => {
+    const query = `SELECT * FROM AppointmentView`;
+    pool.query(query, (err, results) => {
+        if (err) {
+            console.error('Error fetching appointments:', err);
+            return res.status(500).send('Error fetching appointment data.');
+        }
+        res.json(results);
+    });
+});
 
 
 //billing

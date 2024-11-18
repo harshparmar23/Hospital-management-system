@@ -12,6 +12,9 @@ function Appo() {
   const redirectToAddAppointment = () => {
     navigate('/Addappo'); // Replace '/addappo' with the actual route for AddAppo.jsx in your application
   };
+  const redirectToDisplayAppointment = () => {
+    navigate('/displayappo'); // Replace '/addappo' with the actual route for AddAppo.jsx in your application
+  };
 
   const clear = () => {
     setAppointmentId("")
@@ -52,7 +55,8 @@ function Appo() {
       </button>
       <button type="button" className='m-4 btn btn-danger' onClick={clear}>Clear</button>
       <br />
-      <button className="my-4 btn btn-secondary" onClick={redirectToAddAppointment}>
+      <button className="btn btn-secondary" onClick={redirectToDisplayAppointment}>See all appointments</button>
+      <button className="m-4 btn btn-secondary" onClick={redirectToAddAppointment}>
         Add New Appointment
       </button>
 

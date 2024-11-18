@@ -53,14 +53,15 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE UpdateRoomAvailability(IN roomId INT, IN avail BOOLEAN)
+CREATE PROCEDURE UpdateRoomAvailability(IN room_number VARCHAR(10), IN availability BOOLEAN)
 BEGIN
     UPDATE Room
-    SET avail = availability
-    WHERE roomId = room_number;
-END$$
+    SET availability = availability
+    WHERE room_number = room_number;
+END $$
 
 DELIMITER ;
+
 
 
 DROP PROCEDURE UpdateRoomAvailability;
@@ -95,4 +96,30 @@ DELIMITER ;
 drop procedure GetAppointmentDetails;
 
 CALL GetAppointmentDetails(2, 2);
+
+
+CREATE VIEW RoomView AS
+SELECT 
+    room_id,
+    room_number,
+    room_type,
+    CASE 
+        WHEN availability = 1 THEN 'Available' 
+        ELSE 'Unavailable' 
+    END AS availability_status
+FROM Room;
+
+CREATE VIEW AppointmentView AS
+SELECT 
+    a.appointment_id,
+    a.appointment_date,
+    a.appointment_time,
+    a.status,
+    p.name AS patient_name,
+    d.name AS doctor_name
+FROM Appointment a
+JOIN patient p ON p.patient_id = a.patient_id
+JOIN doctor d ON d.doctor_id = a.doctor_id;
+
+drop view AppointmentView;
 

@@ -11,6 +11,9 @@ function Doctor() {
   const redirectToAddPatient = () => {
     navigate('/addpatient'); // Replace '/adddoctor' with the actual route
   };
+  const redirectToDisplayPatient = () => {
+    navigate('/displaypatient'); // Replace '/adddoctor' with the actual route
+  };
 
   const clear = () => {
     setPatientId("");
@@ -56,7 +59,8 @@ function Doctor() {
         Clear
       </button>
       <br />
-      <button className="my-2 btn btn-secondary" onClick={redirectToAddPatient}>
+      <button className="btn btn-secondary" onClick={redirectToDisplayPatient}>See all Patient</button>
+      <button className="m-4 btn btn-secondary" onClick={redirectToAddPatient}>
         Add New Patient
       </button>
       <br /><br />

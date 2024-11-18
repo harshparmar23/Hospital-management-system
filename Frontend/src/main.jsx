@@ -14,8 +14,10 @@ import Billing from './Components/Billing.jsx';
 import AddBilling from './Components/AddBilling.jsx';
 import AddDoctor from './Components/AddDoctor.jsx';
 import AddPatient from './Components/AddPatient.jsx';
-import GenerateBill from './Components/GenerateBill.jsx';
 import AddRoom from './Components/Addroom.jsx';
+import Displayroom from './Components/Displayroom.jsx';
+import DisplayAppointment from './Components/DisplayAppointment.jsx';
+import DisplatPatient from './Components/DisplatPatient.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -35,8 +37,10 @@ createRoot(document.getElementById('root')).render(
         <Route path="/AddBilling" element={<AddBilling/>} />
         <Route path="/adddoctor" element={<AddDoctor/>} />
         <Route path="/addpatient" element={<AddPatient/>} />
-        <Route path="/generatebill" element={<GenerateBill/>} />
         <Route path="/addroom" element={<AddRoom/>} />
+        <Route path="/roomview" element={<Displayroom/>} />
+        <Route path="/displayappo" element={<DisplayAppointment/>} />
+        <Route path="/displaypatient" element={<DisplatPatient/>} />
         
 
       </Routes>

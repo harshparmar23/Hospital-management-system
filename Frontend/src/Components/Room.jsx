@@ -13,6 +13,9 @@ function Room() {
   const redirectToAddRoom = () => {
     navigate('/addroom'); // Replace '/adddoctor' with the actual route for adding a room
   };
+  const redirectToRoomView = () =>{
+    navigate('/roomview');
+  }
 
   // Handle room number change
   const handleRoomNumberChange = (e) => {
@@ -136,7 +139,10 @@ function Room() {
         Clear
       </button>
       <br />
-      <button className="btn btn-secondary" onClick={redirectToAddRoom}>
+      <button className="btn btn-secondary" onClick={redirectToRoomView}>
+        See all room
+      </button>
+      <button className="m-4 btn btn-secondary" onClick={redirectToAddRoom}>
         Add Room
       </button>
 
