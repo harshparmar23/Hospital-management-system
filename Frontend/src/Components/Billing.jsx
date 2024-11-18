@@ -70,7 +70,7 @@ function Billing() {
           <p><strong>Patient ID:</strong> {billData.patient_id}</p>
           <p><strong>Total Amount:</strong> {billData.total_amount}</p>
           <p><strong>Payment Status:</strong> {billData.payment_status}</p>
-          <p><strong>Date:</strong> {billData.date}</p>
+          <p><strong>Date:</strong> {billData.billing_date}</p>
         </div>
       )}
     </div>

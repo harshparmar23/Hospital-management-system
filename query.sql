@@ -105,6 +105,10 @@ INSERT INTO Appointment (patient_id, doctor_id, appointment_date, appointment_ti
 (2, 2, '2024-11-16', '11:00:00', 'Completed'),
 (3, 3, '2024-11-17', '14:30:00', 'Cancelled');
 
+INSERT INTO Appointment (patient_id, doctor_id, appointment_date, appointment_time, status) VALUES
+(1, 1, '2024-11-15', '10:30:00', 'Scheduled');
+
+
 -- Insert sample data into MedicalRecord
 INSERT INTO MedicalRecord (patient_id, doctor_id, diagnosis, treatment, record_date) VALUES
 (1, 1, 'Hypertension', 'Lifestyle changes and medication', '2024-11-01'),

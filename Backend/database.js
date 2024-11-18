@@ -101,7 +101,7 @@ app.get('/doctor/:specialty', (req, res) => {
         }
 
         if (results.length === 0) {
-            return res.status(404).json({ message: 'Appointment not found' });
+            return res.status(404).json({ message: 'Doctor not found' });
         }
 
         res.status(200).json(results[0]);
@@ -150,9 +150,9 @@ app.delete('/delete-department/:department_id', (req, res) => {
             return res.json({ Error: "Error in delete query", Details: err });
         }
         if (result.affectedRows === 0) {
-            return res.json({ Status: "Failed", Message: "No doctor found with the given doctor_id" });
+            return res.json({ Status: "Failed", Message: "No Department found with the given Departmentid" });
         }
-        return res.json({ Status: "Success", Message: "Doctor deleted successfully", data: result });
+        return res.json({ Status: "Success", Message: "Department deleted successfully", data: result });
     });
 });
 
@@ -189,9 +189,9 @@ app.delete('/delete-patient/:patient_id', (req, res) => {
             return res.json({ Error: "Error in delete query", Details: err });
         }
         if (result.affectedRows === 0) {
-            return res.json({ Status: "Failed", Message: "No doctor found with the given doctor_id" });
+            return res.json({ Status: "Failed", Message: "No Patient found with the given Patient room" });
         }
-        return res.json({ Status: "Success", Message: "Doctor deleted successfully", data: result });
+        return res.json({ Status: "Success", Message: "Patient deleted successfully", data: result });
     });
 });
 
@@ -226,7 +226,7 @@ app.get('/patient/:patient_id', (req, res) => {
         }
 
         if (results.length === 0) {
-            return res.status(404).json({ message: 'Appointment not found' });
+            return res.status(404).json({ message: 'Patient not found' });
         }
 
         res.status(200).json(results[0]);
@@ -273,9 +273,9 @@ app.delete('/delete-room/:room_number', (req, res) => {
             return res.json({ Error: "Error in delete query", Details: err });
         }
         if (result.affectedRows === 0) {
-            return res.json({ Status: "Failed", Message: "No doctor found with the given doctor_id" });
+            return res.json({ Status: "Failed", Message: "No room found with the given room" });
         }
-        return res.json({ Status: "Success", Message: "Doctor deleted successfully", data: result });
+        return res.json({ Status: "Success", Message: "Room deleted successfully", data: result });
     });
 });
 

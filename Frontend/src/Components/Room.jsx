@@ -152,10 +152,10 @@ function Room() {
           <h3>Room Details</h3>
           <p><strong>Room Number:</strong> {roomData.room_number}</p>
           <p><strong>Room Type:</strong> {roomData.room_type}</p>
-          <p><strong>Status:</strong> {roomData.availability ? 'Available' : 'Unavailable'}</p>
+          <p><strong>Status:</strong> {roomData.availability ? "Available" : "Unavailable"}</p>
         </div>
       )}
-      {message && <p className="status-message">{message}</p>}
+      {/* {message && <p className="status-message">{message}</p>} */}
     </div>
   );
 }

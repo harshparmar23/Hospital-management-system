@@ -26,14 +26,21 @@ AFTER UPDATE ON Appointment
 FOR EACH ROW
 BEGIN
     -- Check if the appointment date has passed and the status is still 'Scheduled'
-    IF NEW.appointment_date < CURRENT_DATE AND NEW.status = 'Scheduled' THEN
+    IF NEW.appointment_date < CURRENT_DATE THEN
         UPDATE Appointment
         SET status = 'Completed'
         WHERE appointment_id = NEW.appointment_id;
     END IF;
 END$$
 
+insert into app
+
 DELIMITER ;
+
+INSERT INTO Appointment (patient_id, doctor_id, appointment_date, appointment_time, status) VALUES
+(2, 1, '2024-11-15', '10:30:00', 'Scheduled');
+
+drop TRIGGER update_appointment_status_after_date;
 
 DELIMITER $$
 
@@ -122,4 +129,17 @@ JOIN patient p ON p.patient_id = a.patient_id
 JOIN doctor d ON d.doctor_id = a.doctor_id;
 
 drop view AppointmentView;
+
+
+CREATE VIEW PatientView AS
+SELECT 
+    patient_id,
+    name,
+    dob,
+    gender,
+    phone,
+    email,
+    address,
+    blood_type
+FROM Patient;
 
